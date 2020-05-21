@@ -4,7 +4,7 @@ import os
 
 
 ROOT_URL = "https://www.cs.cmu.edu/afs/cs/academic/class/15213-f19/www/code/"
-ROOT_DIR = "/Users/Armstrong/Dropbox/Scripts/15213-code-download/data/"
+ROOT_DIR = "/data/"
 
 
 def gen_sub_url_ref(endpoint=""):
@@ -18,7 +18,7 @@ def gen_sub_url_ref(endpoint=""):
 
     # if not file, get file/subdir list, recurse
     response = requests.get(url)
-    sub_soup = BeautifulSoup(response.text, "lxml-xml")
+    sub_soup = BeautifulSoup(response.text, "html.parser")
     a_ref_ls = sub_soup.find_all("a")
     a_ref_text_ls = [a.text for a in a_ref_ls]
     parent_dir_index = a_ref_text_ls.index("Parent Directory")
