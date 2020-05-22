@@ -1,4 +1,6 @@
+Downloads file, store in data folder
+
 #+BEGIN_SRC sh
 docker build -t 15213-downloader .
-docker run --name 15213-downloader  -v $(pwd)/data:/data 15213-downloader
+docker run --name 15213-downloader -v $(pwd)/data:/data 15213-downloader
 #+END_SRC

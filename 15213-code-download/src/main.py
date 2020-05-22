@@ -7,7 +7,7 @@ ROOT_URL = "https://www.cs.cmu.edu/afs/cs/academic/class/15213-f19/www/code/"
 ROOT_DIR = "/data/"
 
 
-def gen_sub_url_ref(endpoint: str = ""):
+def gen_sub_url_ref(endpoint: str = "") -> None:
     url = ROOT_URL+endpoint
     file_path = ROOT_DIR+endpoint
 
@@ -26,7 +26,7 @@ def gen_sub_url_ref(endpoint: str = ""):
         gen_sub_url_ref(endpoint+sub)
 
 
-def save_to_file(url: str, file_path: str):
+def save_to_file(url: str, file_path: str) -> None:
     response = requests.get(url)
     dir_ls = file_path.split("/")
     dir_ls.pop()
